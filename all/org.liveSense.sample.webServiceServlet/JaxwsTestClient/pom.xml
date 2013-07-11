@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	/*
+	* Copyright 2010 Robert Csakany <robson@semmi.se>.
+	*
+	* Licensed under the Apache License, Version 2.0 (the "License");
+	* you may not use this file except in compliance with the License.
+	* You may obtain a copy of the License at
+	*
+	* http://www.apache.org/licenses/LICENSE-2.0
+	*
+	* Unless required by applicable law or agreed to in writing, software
+	* distributed under the License is distributed on an "AS IS" BASIS,
+	* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	* See the License for the specific language governing permissions and
+	* limitations under the License.
+	* under the License.
+	*/
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../../org.liveSense.parent</relativePath>
+	</parent>
+
+	<artifactId>org.liveSense.sample.webServiceServlet.jaxwstestclient</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>liveSense :: Sample :: Web Service Servlet Sample Jaxws Test Client</name>
+	<description>liveSense Web Service Servlet Sample Jaxws Test Client
+	</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>${cxf.version}</version>
+				<executions>
+					<execution>
+						<id>generate-sources-aegis</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated-sources/cxf/jaxws</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>http://localhost:8080/webservices/declaretivejaxws?wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-frontend</extraarg>
+										<extraarg>jaxws21</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+							<artifactItems>
+								<artifactItem>
+									<groupId>javax.xml.bind</groupId>
+									<artifactId>jaxb-api</artifactId>
+									<version>2.1</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>javax.xml.ws</groupId>
+									<artifactId>jaxws-api</artifactId>
+									<version>2.1</version>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+
+				</executions>
+			</plugin>
+
+			<!-- The Eclipse won't see the source generated above by cxf plugin unless it is exposed as an additional source dir -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source-jaxws</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources/cxf/jaxws</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+</project>
+
+

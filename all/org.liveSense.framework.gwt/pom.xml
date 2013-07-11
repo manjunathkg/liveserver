@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	/*
+	* Copyright 2010 Robert Csakany <robson@semmi.se>.
+	*
+	* Licensed under the Apache License, Version 2.0 (the "License");
+	* you may not use this file except in compliance with the License.
+	* You may obtain a copy of the License at
+	*
+	* http://www.apache.org/licenses/LICENSE-2.0
+	*
+	* Unless required by applicable law or agreed to in writing, software
+	* distributed under the License is distributed on an "AS IS" BASIS,
+	* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	* See the License for the specific language governing permissions and
+	* limitations under the License.
+	* under the License.
+	*/
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+	<scm>
+		<connection>scm:git:git://github.com/liveSense/org.liveSense.servlet.gwtrpc.git</connection>
+		<developerConnection>scm:git:git://github.com/liveSense/org.liveSense.servlet.gwtrpc.git</developerConnection>
+		<url>https://github.com/liveSense/org.liveSense.servlet.gwtrpc</url>
+	</scm>
+
+	<artifactId>org.liveSense.framework.gwt</artifactId>
+	<packaging>bundle</packaging>
+	<version>${gwt.version}_1-SNAPSHOT</version>
+
+	<name>liveSense :: Framework :: GWT framework</name>
+	<description>
+        GWT packages and RPC-Servlet
+    </description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Import-Package>
+							com.google.gwt.core.ext.*;resolution:=optional,
+							com.google.gwt.core.linker.*;resolution:=optional,
+							com.google.gwt.dev.cfg.*;resolution:=optional,
+							com.google.gwt.dev.jjs.*;resolution:=optional,
+							com.google.gwt.dev.resource.*;resolution:=optional,
+							com.google.gwt.dev.util.collect.*;resolution:=optional,
+							com.google.gwt.dev.util.log.*;resolution:=optional,
+							com.google.gwt.i18n.rebind.keygen.*;resolution:=optional,
+							com.google.gwt.json.client.*;resolution:=optional,
+							com.google.gwt.lang.*;resolution:=optional,
+							com.google.gwt.thirdparty.guava.common.base.*;resolution:=optional,
+							com.google.gwt.thirdparty.streamhtmlparser.*;resolution:=optional,
+							com.google.gwt.uibinder.rebind.*;resolution:=optional,
+							com.google.gwt.user.rebind.*;resolution:=optional,
+							junit.framework.*;resolution:=optional,
+							org.w3c.css.sac.*;resolution:=optional,
+							org.w3c.flute.parser.*;resolution:=optional
+							
+						</Import-Package>
+						<_exportcontents>
+							com.google.gwt.*;version=${project.version},
+							com.google.web.bindery.*;version=${project.version},
+						</_exportcontents>
+						<!-- There are config files with same name will be overwritten -->
+						<Embed-Dependency>*;scope=compile;inline=true</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
+						<DynamicImport-Package>*</DynamicImport-Package>
+					</instructions>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+		</dependency>
+		<!-- <dependency>
+			 <groupId>com.google.gwt</groupId>
+			 <artifactId>gwt-user</artifactId>
+		</dependency> -->
+
+	</dependencies>
+</project>
+
+
+

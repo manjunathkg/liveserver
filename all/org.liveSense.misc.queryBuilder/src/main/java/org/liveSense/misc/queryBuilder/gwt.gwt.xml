@@ -1,0 +1,13 @@
+<module>
+    <!-- Inherit the core Web Toolkit stuff. -->
+ 	<source path="jdbcDriver"/>
+   	<source path="exceptions"/>
+   	<source path="models"/>
+ 	<source path="criterias"/>
+ 	<source path="operands"/> 	
+ 	<source path="operators"/>
+ 	<source path="clauses"/> 	
+ 	<source path="domains"/> 	
+ 	<source path="beans"/> 	
+
+ </module>

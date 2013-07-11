@@ -1,0 +1,33 @@
+org.liveSense.parent parent.livesense.googlecode com
+org.liveSense.auth.ldap authldap.livesense.googlecode com
+org.liveSense.core core.livesense.googlecode com
+org.liveSense.misc.sun.misc sunmisc.livesense.googlecode com
+org.liveSense.misc.configurationLoader configurationloader.livesense.googlecode com
+org.liveSense.misc.queryBuilder querybuilder.livesense.googlecode com
+org.liveSense.misc.i18n i18n.livesense.googlecode com
+org.liveSense.misc.jsr303 jsr303.livesense.googlecode com
+org.liveSense.misc.jcrom jcrom.livesense.googlecode com
+org.liveSense.misc.image.codec.jpeg imagecodecjpeg.livesense.googlecode com
+org.liveSense.misc.javax.persistence javaxpersistence.livesense.googlecode com
+org.liveSense.misc.gwt.jsr303 gwtjsr303.livesense.googlecode com
+org.liveSense.scripting.jsp.taglib.json jsptaglibjson.livesense.googlecode com
+org.liveSense.scripting.jsp.taglib.jstl jsptaglibjstl.livesense.googlecode com
+org.liveSense.jackrabbit.server.jdbc.mysql jrsjdbcmysql.livesense.googlecode com
+org.liveSense.servlet.gwtrpc gwtrpc.livesense.googlecode com
+org.liveSense.service.dataSourceProvider datasourceprovider.livesense.googlecode com
+org.liveSense.framework.gxt frameworkgxt.livesense.googlecode com
+org.liveSense.service.securityManager securitymanager.livesense.googlecode com
+org.liveSense.service.activation activation.livesense.googlecode com
+org.liveSense.service.captcha captcha.livesense.googlecode com
+org.liveSense.service.email email.livesense.googlecode com
+org.liveSense.service.languageSelector languageselector.livesense.googlecode com
+org.liveSense.service.thumbnailGenerator thumbnailgenerator.livesense.googlecode com
+org.liveSense.service.xssRemove xssremove.livesense.googlecode com
+org.liveSense.sample.configurationLoad sampleconfload.livesense.googlecode com
+org.liveSense.sample.gwt.notes samplegwtnotes.livesense.googlecode com
+org.liveSense.sample.simplePortal samplesimpleportal.livesense.googlecode com
+org.liveSense.content.initial contentinitial.livesense.googlecode com
+org.liveSense.webconsole.branding webconsolebranding.livesense.googlecode com
+org.liveSense.launchpad launchpad.livesense.googlecode com
+
+

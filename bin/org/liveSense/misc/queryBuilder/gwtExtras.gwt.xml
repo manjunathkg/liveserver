@@ -1,0 +1,4 @@
+<module>
+    <!-- Inherit the core Web Toolkit stuff. -->
+ 	<source path="gwt"/> 	
+ </module>

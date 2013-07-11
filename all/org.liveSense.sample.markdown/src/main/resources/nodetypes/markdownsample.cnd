@@ -1,0 +1,18 @@
+<markdownsample = 'http://livesense.org/markdownsample/1.0'>
+<nt  = 'http://www.jcp.org/jcr/nt/1.0'>
+<sling = 'http://sling.apache.org/jcr/sling/1.0'>
+
+[markdownsample:markdownpage] > nt:unstructured
+	- 'menuOrder' (String)
+	- 'title' (String)
+	- 'portalName' (String) 
+	- 'content' (String)
+	- 'menu' (String)
+
+[markdownsample:sample] > nt:unstructured
+	- 'displayOrder' (String)
+	- 'title' (String)
+	- 'description' (String)
+	- 'portalName' (String) 
+	- 'content' (String)
+	- 'parentMenu' (String)

@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+	<artifactId>org.liveSense.service.guacamole</artifactId>
+	<packaging>bundle</packaging>
+	<description>Guacamole Web based desktop client</description>
+
+	<name>liveSense :: Service :: Gacamole (Web based RDP)</name>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+			</plugin>
+			<!--  Uncpack Javascript library -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-guacamole-common-js</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target</outputDirectory>
+							<stripVersion>true</stripVersion>
+							<artifactItems>
+								<artifactItem>
+									<groupId>net.sourceforge.guacamole</groupId>
+									<artifactId>guacamole-common-js</artifactId>
+									<version>0.7.0</version>
+									<classifier></classifier>
+									<overWrite>true</overWrite>
+									<type>zip</type>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- initial content to be loaded on bundle installation -->
+						<Sling-Initial-Content>
+							SLING-INF/jcr-contents;overwrite:=true;uninstall:=true;overwriteProperties=true
+						</Sling-Initial-Content>
+						<!-- Copy the files from filesystem to Bundle -->
+						<Include-Resource>
+							SLING-INF/jcr-contents/guacamole/js=${basedir}/target/guacamole-common-js,
+							SLING-INF/jcr-contents/guacamole=${basedir}/src/main/resources/jcr-contents/guacamole,
+							SLING-INF/ldap-data=${basedir}/src/main/resources/ldap-data,
+							META-INF=${basedir}/target/maven-shared-archive-resources/META-INF,
+							OSGI-INF=${basedir}/target/scr-plugin-generated/OSGI-INF
+						</Include-Resource>
+						<ApacheDS-Configuration>
+							SLING-INF/ldap-data
+						</ApacheDS-Configuration>
+						<Embed-Dependency>
+							guacamole-common
+						</Embed-Dependency>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!--  -->
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.securityManager</artifactId>
+		</dependency>
+		<!-- OSGi dependencies -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+		</dependency>
+		
+		<!-- Apache Sling Dependencies -->
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.osgi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.mime</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.auth.core</artifactId>
+			<scope>compile</scope>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+
+		<!-- Basic Gacamole dependencies -->
+		<dependency>
+			<groupId>net.sourceforge.guacamole</groupId>
+			<artifactId>guacamole-common</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.jsp.taglib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<!-- Main Guacamole repository -->
+		<repository>
+			<id>guac-dev</id>
+			<url>http://guac-dev.org/repo</url>
+		</repository>
+	</repositories>
+</project>

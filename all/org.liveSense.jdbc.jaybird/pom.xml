@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+
+	<artifactId>org.liveSense.jdbc.jaybird</artifactId>
+	<version>2.2.0_1-SNAPSHOT</version>
+	<packaging>bundle</packaging>
+
+	<name>liveSense :: JDBC :: Jaybird</name>
+	<description>
+		This  bundle contains the Jaybird JDBC driver
+    </description>
+	<repositories>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Import-Package>
+							javax.resource;resolution:=optional,
+							javax.resource.cci;resolution:=optional,
+							javax.resource.spi;resolution:=optional,
+							javax.resource.spi.security;resolution:=optional,
+							org.antlr.runtime;resolution:=optional,
+							org.antlr.runtime.tree;resolution:=optional,
+							*
+						</Import-Package>
+						<Export-Package>
+							org.firebirdsql.jdbc;version=2.2.0
+						</Export-Package>
+						<Embed-Dependency>
+							jaybird-jdk16;inline=true
+						</Embed-Dependency>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+
+		<dependency>
+			<groupId>org.firebirdsql.jdbc</groupId>
+			<artifactId>jaybird-jdk16</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+	</dependencies>
+</project>

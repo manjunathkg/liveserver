@@ -1,0 +1,8 @@
+{
+    "menuOrder": "1",
+    "title": "liveSense Markdown",
+    "portalName": "markdownsample",
+    "content": "",
+    "menu": "Home",
+    "jcr:primaryType": "markdownsample:markdownpage"
+}

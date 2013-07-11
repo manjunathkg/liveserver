@@ -1,0 +1,26 @@
+.hero-unit {
+	background-color: rgba(190, 217, 232, 0.8);
+	border: 3px solid;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	border-radius: 16px;
+	padding: 20px;
+	border-width: 3px;
+	border-color: rgb(121, 154, 167);
+}
+
+legend {
+	border-bottom: 2px solid rgb(121, 154, 167);
+	color: rgb(101, 124, 137);
+	font-weight: bold;
+}
+
+body {
+/*	background: url("../images/bg-voman.png") no-repeat, url("../images/bgr_sima.jpg") no-repeat, rgb(204,225,254); 
+	background-size: auto auto, 100%;
+*/
+
+	background: url("../images/bgr_sima.jpg") no-repeat, rgb(204,225,254);
+	background-size: 100%;
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}

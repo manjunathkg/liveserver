@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+  	<parent>
+      <groupId>com.github.livesense</groupId>
+      <artifactId>org.liveSense.parent</artifactId>
+      <version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+  	</parent>
+
+  <scm>
+      <connection>scm:git:git://github.com/liveSense/org.liveSense.misc.queryBuilder.git</connection>
+      <developerConnection>scm:git:git://github.com/liveSense/org.liveSense.misc.queryBuilder.git</developerConnection>
+      <url>https://github.com/liveSense/org.liveSense.misc.queryBuilder</url>
+  </scm>  
+  
+	<artifactId>org.liveSense.misc.queryBuilder.gwt</artifactId>
+	<packaging>bundle</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>liveSense :: Misc :: SQL QueryBuilder GWT specific classes</name>
+	<description>liveSense SQL QueryBuilder
+	</description>
+	<build>
+	     <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-scr-scrdescriptor</id>
+						<goals>
+							<goal>scr</goal>
+						</goals>
+						<configuration>
+							<sourceExcludes>**/client/**</sourceExcludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>maven-sling-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- Which java packages are exported for other bundles -->
+						<Export-Package>
+							org.liveSense.misc.queryBuilder.gwt.*
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+			
+					      <!-- requestfactory-apt runs an annotation processor (APT) to
+		           instrument its service interfaces so that
+		           RequestFactoryServer can decode client requests. Normally
+		           you would just have a dependency on requestfactory-apt
+		           with <scope>provided</scope>, but that won't work in
+		           eclipse due to m2e bug
+		           https://bugs.eclipse.org/bugs/show_bug.cgi?id=335036 -->
+			<plugin>
+				<groupId>org.bsc.maven</groupId>
+				<artifactId>maven-processor-plugin</artifactId>
+				<version>2.0.5</version>
+				<executions>
+					<execution>
+						<id>process</id>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<phase>generate-sources</phase>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.google.web.bindery</groupId>
+						<artifactId>requestfactory-apt</artifactId>
+						<version>${gwt.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			 <!-- Run annotation processors on src/test/java sources -->
+    			<plugin>
+      			<groupId>org.bsc.maven</groupId>
+      			<artifactId>maven-processor-plugin</artifactId>
+				<version>2.0.5</version>
+      			<executions>
+        				<execution>
+          				<id>process-test</id>
+          				<goals>
+            					<goal>process-test</goal>
+          				</goals>
+          				<phase>generate-test-sources</phase>
+        				</execution>
+      			</executions>
+    			</plugin>
+		      <!-- Google Plugin for Eclipse (GPE) won't see the source
+		           generated above by requestfactory-apt unless it is exposed
+		           as an additional source dir-->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources/apt</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>			
+				<plugin>
+        				<groupId>org.codehaus.mojo</groupId>
+        				<artifactId>gwt-maven-plugin</artifactId>
+        				<configuration>
+      						<includes>**/*GwtTestSuite.java</includes>
+      					 	<mode>htmlunit</mode>
+      					 	<htmlunit>FF3</htmlunit>
+    					</configuration>
+			        <executions>
+			          <execution>
+			            <goals>
+			              <goal>test</goal>
+			            </goals>
+			          </execution>
+			        </executions>
+		      </plugin>
+		      
+		      <plugin>
+    				<artifactId>maven-surefire-plugin</artifactId>
+    					<configuration>
+      					<excludes>
+        						<exclude>**/*GwtTest.java</exclude>
+        						<exclude>**/*GwtTestSuite.java</exclude>
+     					</excludes>
+    					</configuration>
+  				</plugin>
+			
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+    		<groupId>commons-beanutils</groupId>
+    		<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.queryBuilder</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>javaee-api</artifactId>
+					<groupId>javax</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-dev</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+      		<groupId>org.hibernate</groupId>
+      		<artifactId>hibernate-validator</artifactId>
+      		<version>4.2.0.Final</version>
+      		<scope>test</scope>
+    		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.0.Final</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>
+
+

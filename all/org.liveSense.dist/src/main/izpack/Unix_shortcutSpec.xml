@@ -1,0 +1,48 @@
+<shortcuts>
+	<skipIfNotSupported/>
+
+	<programGroup defaultName="Remote Invoice" location="applications"/>
+	<shortcut
+		name="Start Server"
+		programGroup="yes"
+		desktop="yes"
+		applications="no"
+		startMenu="no"
+		startup="no"
+		target="$INSTALL_PATH/bin/runConsole.sh"
+		commandLine=""
+
+		initialState="noShow"
+		iconFile="$INSTALL_PATH/freenet.ico"
+		iconIndex="0" 
+		workingDirectory="$INSTALL_PATH"
+		type="Application"
+		encoding="UTF-8"
+		createForAll="false"
+		description="Start liveSense server">
+		<createForPack name="liveSense core" />
+	</shortcut>
+
+	<shortcut
+		name="Uninstall Remote Invoice"
+		programGroup="yes"
+		desktop="no"
+		applications="no"
+		startMenu="no"
+		startup="no"
+		target="java"
+		commandLine="-jar &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
+
+		initialState="noShow"
+		iconFile="trashcan_full"
+		iconIndex="0" 
+		workingDirectory="$INSTALL_PATH"
+		type="Application"
+		encoding="UTF-8"
+		createForAll="false"
+		description="This uninstalls liveSense">
+		<createForPack name="liveSemse core" />
+
+	</shortcut>
+
+</shortcuts>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	/*
+	* Copyright 2010 Robert Csakany <robson@semmi.se>.
+	*
+	* Licensed under the Apache License, Version 2.0 (the "License");
+	* you may not use this file except in compliance with the License.
+	* You may obtain a copy of the License at
+	*
+	* http://www.apache.org/licenses/LICENSE-2.0
+	*
+	* Unless required by applicable law or agreed to in writing, software
+	* distributed under the License is distributed on an "AS IS" BASIS,
+	* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	* See the License for the specific language governing permissions and
+	* limitations under the License.
+	* under the License.
+	*/
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+	<scm>
+		<connection>scm:git:git://github.com/liveSense/org.liveSense.service.report.jasper.git</connection>
+		<developerConnection>scm:git:git://github.com/liveSense/org.liveSense.service.report.jasper.git</developerConnection>
+		<url>https://github.com/liveSense/org.liveSense.service.report.jasper</url>
+	</scm>
+
+	<artifactId>org.liveSense.framework.jasperreports</artifactId>
+	<packaging>bundle</packaging>
+	<version>${jasper.version}_1-SNAPSHOT</version>
+	<name>liveSense :: Framework :: Jasper reports</name>
+	<description>
+		liveSense Jasper report framework
+	</description>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<_exportcontents>
+							net.sf.jasperreports.*;version=${project.version}
+						</_exportcontents>
+
+						<!--
+							<Embed-Dependency>
+							DynamicJasper;inline=true
+							</Embed-Dependency>
+						-->
+						<Import-Package>
+							com.apple.mrj.*;resolution:=optional,
+							com.lowagie.toolbox.*;resolution:=optional,
+							javax.mail.*;resolution:=optional,
+							junit.*;resolution:=optional,
+							antlr.*;resolution:=optional,
+							bsh.*;resolution:=optional,
+							jxl.*;resolution:=optional,
+							mondrian.olap.*;resolution:=optional,
+							net.sourceforge.barbecue.*;resolution:=optional,
+							org.apache.batik.*;resolution:=optional,
+							org.apache.poi.*;resolution:=optional,
+							org.apache.tools.ant.*;resolution:=optional,
+							org.apache.velocity.*;resolution:=optional,
+							org.codehaus.jackson.*;resolution:=optional,
+							org.eclipse.jdt.*;resolution:=optional,
+							org.exolab.castor.*;resolution:=optional,
+							org.hibernate.*;resolution:=optional,
+							org.jaxen.*;resolution:=optional,
+							org.krysalis.barcode4j.*;resolution:=optional,
+							org.springframework.beans.factory.*;resolution:=optional,
+							org.springframework.core.io.*;resolution:=optional,
+							org.w3c.dom.svg.*;resolution:=optional,
+							org.apache.commons.javaflow.*;resolution:=optional,
+							org.mozilla.javascript.*;resolution:=optional,
+							*
+						</Import-Package>
+
+
+						<!-- bundle supplied resource prefixes -->
+						<Include-Resource>{maven-resources}</Include-Resource>
+
+						<!-- Do not inline jars, include as jar files -->
+						<!-- There are config files with same name will be overwritten -->
+						<Embed-Dependency>*;scope=compile;inline=false</Embed-Dependency>
+
+
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+
+		<!-- Embedded dependencies -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>${jasper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jcommon</artifactId>
+			<version>1.0.16</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>${jasper.version}</version>
+		</dependency>
+
+
+	</dependencies>
+</project>
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+.hg
+/target
+/.settings
+/.project
+/.classpath
+/nbactions.xml
+/www-test
+/war
+/gwt-unitCache

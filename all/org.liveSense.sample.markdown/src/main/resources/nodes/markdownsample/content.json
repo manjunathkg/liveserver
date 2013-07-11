@@ -1,0 +1,64 @@
+{
+    "sample1": {
+    	"displayOrder": "1",
+    	"title": "1. Headers",
+    	"description": "Atx-style headers use 1-6 hash characters at the start of the line, corresponding to header levels 1-6.",
+    	"portalName": "markdownsample",
+    	"content": "#Header H1\n##Header H2\n###Header H3\n####Header H4\n#####Header H5\n######Header H6",
+    	"parentMenu": "basic",
+    	"jcr:primaryType": "markdownsample:sample"
+    },
+    "sample2": {
+    	"displayOrder": "2",
+    	"title": "2. Blocquotes",
+    	"description": "Markdown uses email-style > characters for blockquoting. If you’re familiar with quoting passages of text in an email message, then you know how to create a blockquote in Markdown. It looks best if you hard wrap the text and put a > before every line.",
+    	"portalName": "markdownsample",
+    	"content": ">This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,\n> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.\n> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.",
+    	"parentMenu": "basic",
+    	"jcr:primaryType": "markdownsample:sample"
+    },
+    "sample3": {
+    	"displayOrder": "3",
+    	"title": "3. Lists",
+    	"description": "Markdown supports ordered (numbered) and unordered (bulleted) lists. Unordered lists use asterisks, pluses, and hyphens — interchangably — as list markers.",
+    	"portalName": "markdownsample",
+    	"content": "* Red\n* Green\n* Blue",
+    	"parentMenu": "basic",
+    	"jcr:primaryType": "markdownsample:sample"
+    },
+    "sample4": {
+    	"displayOrder": "4",
+    	"title": "4. Code blocks",
+    	"description": "Pre-formatted code blocks are used for writing about programming or markup source code. Rather than forming normal paragraphs, the lines of a code block are interpreted literally. Markdown wraps a code block in both 'pre' and 'code' tags. To produce a code block in Markdown, simply indent every line of the block by at least 4 spaces or 1 tab.",
+    	"portalName": "markdownsample",
+    	"content": "	This is a code block.\n	Lorem ipsum dolor sit amet\n	consectetuer adipiscing elit.",
+    	"parentMenu": "basic",
+    	"jcr:primaryType": "markdownsample:sample"
+    },
+
+
+
+    "sample5": {
+    	"displayOrder": "5",
+    	"title": "1. URL autolinking",
+    	"description": "GFM will autolink standard URLs, so if you want to link to a URL (instead of setting link text), you can simply enter the URL and it will be turned into a link to that URL.",
+    	"portalName": "markdownsample",
+    	"content": "The liveSense repository on GitHub: http://www.github.com/livesense.",
+    	"parentMenu": "extra",
+    	"jcr:primaryType": "markdownsample:sample"
+    },
+    "sample6": {
+    	"displayOrder": "6",
+    	"title": "2. Fenced code blocks",
+    	"description": "Markdown converts text with four spaces at the front of each line to code blocks. GFM supports that, but we also support fenced blocks. Just wrap your code blocks in ``` and you won't need to indent manually to trigger a code block.",
+    	"portalName": "markdownsample",
+    	"content": "```require 'redcarpet'\nmarkdown = Redcarpet.new('Hello World!')\nputs markdown.to_html\n```",
+    	"parentMenu": "extra",
+    	"jcr:primaryType": "markdownsample:sample"
+    }
+
+
+
+
+
+}

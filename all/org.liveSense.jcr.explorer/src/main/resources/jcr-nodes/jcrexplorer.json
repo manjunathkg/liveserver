@@ -1,0 +1,22 @@
+{
+	"sling:resourceType"="JcrExplorer:index",
+	login : {
+		"sling:resourceType"="JcrExplorer:login",
+		"errorUserNameAndPasswordDoesNotMatch":"User name or password does not match",
+		"errorSessionTimedOut":"Session expired, please login again",
+		"errorUnknown":"Unknown error: ",
+		"error":"Error",
+		"loginText":"liveSense Explorer login",
+		"userNameLabel":"User name",
+		"passwordLabel":"Password",
+		"submitButton":"Login",
+		"errorUserNameAndPasswordDoesNotMatch_hu_HU":"Hib\u00E1s felhaszn\u00E1l\u00F3n\u00E9v vagy jelsz\u00F3",
+		"errorSessionTimedOut_hu_HU":"Id\u0151t\u00FAll\u00E9p\u00E9s, jelentkezzen be \u00FAjra!",
+		"errorUnknown_hu_HU":"Ismeretlen hiba: ",
+		"error_hu_HU":"Hiba",
+		"loginText_hu_HU":"liveSense Explorer bel\u00E9p\u00E9s",
+		"userNameLabel_hu_HU":"Felhaszn\u00E1l\u00F3n\u00E9v",
+		"passwordLabel_hu_HU":"Jelsz\u00F3",
+		"submitButton_hu_HU":"Bel\u00E9p\u00E9s"
+	}
+}

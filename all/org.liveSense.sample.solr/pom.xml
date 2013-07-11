@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+        <relativePath>../org.liveSense.parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>org.liveSense.sample.solr</artifactId>
+	<name>liveSense :: Sample :: Sorl</name>
+	<description>This samplecontains default configurations and servlets for City/Postal code/Street location database indexing</description>
+	<packaging>bundle</packaging>
+	<version>${livesense.server.version}</version>
+	<build>
+   		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- Copy the files from filesystem to Bundle -->
+						<Include-Resource>
+							SLING-INF/jcr-nodes=src/main/resources/jcr-nodes,
+							SLING-INF/jcr-nodetypes=src/main/resources/jcr-nodetypes,
+							SLING-INF/solr-configurations=src/main/resources/solr-configurations,
+							SLING-INF/sling-scripts=src/main/resources/sling-scripts,
+							SLING-INF/osgi-configurations=src/main/resources/osgi-configurations,
+							META-INF=target/maven-shared-archive-resources/META-INF
+						</Include-Resource>
+   						<Solr-Configuration>
+							SLING-INF/solr-configurations
+						</Solr-Configuration>
+						<!-- Initial bundle configurations (for example FsResource) -->
+						<Felix-Initial-Configuration>
+							SLING-INF/osgi-configurations
+						</Felix-Initial-Configuration>
+						<!-- initial content to be loaded on bundle installation -->
+						<Sling-Initial-Content>
+							SLING-INF/jcr-nodes;path:=/;overwrite:=false;uninstall:=true,
+							SLING-INF/sling-scripts;path:=/apps;overwrite:=true;uninstall:=true
+						</Sling-Initial-Content>
+						<!-- Delegate Bundle content as resource -->
+						<Sling-Bundle-Resources>
+						</Sling-Bundle-Resources>
+						<!-- node types to be created -->
+						<Sling-Nodetypes>
+							SLING-INF/jcr-nodetypes/locations.cnd;reregister:=true
+						</Sling-Nodetypes>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+    </build>
+    <dependencies>
+    	<dependency>
+    		<groupId>com.github.livesense</groupId>
+    		<artifactId>org.liveSense.service.solr</artifactId>
+    	</dependency>
+    
+    </dependencies>
+</project>

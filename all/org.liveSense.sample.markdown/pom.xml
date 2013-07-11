@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+	<artifactId>org.liveSense.sample.markdown</artifactId>
+	<packaging>bundle</packaging>
+	<description>Markdown sample</description>
+
+	<name>liveSense :: Sample :: Markdown</name>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- Iniial bundle configurations (for example FsResource) -->
+						<Felix-Initial-Configuration>
+							${Felix-Initial-Configuration}
+						</Felix-Initial-Configuration>
+
+						<!-- initial content to be loaded on bundle installation -->
+						<Sling-Initial-Content>
+							${Sling-Initial-Content}
+						</Sling-Initial-Content>
+
+						<!-- Resources delegated in bundle as resource -->
+						<Sling-Bundle-Resources>
+							${Sling-Bundle-Resources}
+						</Sling-Bundle-Resources>
+
+						<!-- Copy the files from filesystem to Bundle -->
+						<Include-Resource>
+							${Include-Resource}
+						</Include-Resource>
+
+						<!-- node types to be created -->
+						<Sling-Nodetypes>
+							${Sling-Nodetypes}
+						</Sling-Nodetypes>
+						<!-- Which java packages are exported for other bundles -->
+						<Export-Package>
+							${Export-Package}
+						</Export-Package>
+
+						<!-- Which packges imported to bundle -->
+						<Import-Package>
+							${Import-Package}
+						</Import-Package>
+
+						<!-- Dynamic packages -->
+						<DynamicImport-Package>
+							${DynamicImport-Package}
+						</DynamicImport-Package>
+
+						<!-- Embedded packages -->
+						<Embed-Dependency>
+							${Embed-Dependency}
+						</Embed-Dependency>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>release</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<properties>
+				<!-- Iniial bundle configurations (for example FsResource) -->
+				<Felix-Initial-Configuration>
+					configuration
+				</Felix-Initial-Configuration>
+				<!-- initial content to be loaded on bundle installation -->
+				<Sling-Initial-Content>
+					nodes;overwrite:=true;uninstall:=true,
+					content;overwrite:=false;uninstall:=true
+				</Sling-Initial-Content>
+
+				<!-- Delegate Bundle content as resource -->
+				<!-- 
+				<Sling-Bundle-Resources>
+					/apps/markdownsample,
+				</Sling-Bundle-Resources>
+				-->
+				<!-- node types to be created -->
+				<Sling-Nodetypes>
+					nodetypes/markdownsample.cnd;reregister:=true
+				</Sling-Nodetypes>
+
+				<Export-Package>
+					org.liveSense.*
+				</Export-Package>
+
+				<Import-Package>
+					*;resolution:=optional
+				</Import-Package>
+
+				<!-- Copy the files from filesystem to Bundle -->
+				<Include-Resource>
+					SLING-INF/configuration=src/main/resources/configuration,
+					SLING-INF/nodes=src/main/resources/nodes,
+					SLING-INF/content=src/main/resources/content,
+					SLING-INF/nodetypes=src/main/resources/nodetypes,
+					apps=src/main/resources/apps,
+					{maven-resources}
+				</Include-Resource>
+
+				<Embed-Dependency>
+				</Embed-Dependency>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.jsp.taglib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.markdown</artifactId>
+		</dependency>
+
+	</dependencies>
+</project>

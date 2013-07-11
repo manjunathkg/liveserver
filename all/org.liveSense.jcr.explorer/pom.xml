@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	/*
+	* Copyright 2010 Robert Csakany <robson@semmi.se>.
+	*
+	* Licensed under the Apache License, Version 2.0 (the "License");
+	* you may not use this file except in compliance with the License.
+	* You may obtain a copy of the License at
+	*
+	* http://www.apache.org/licenses/LICENSE-2.0
+	*
+	* Unless required by applicable law or agreed to in writing, software
+	* distributed under the License is distributed on an "AS IS" BASIS,
+	* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	* See the License for the specific language governing permissions and
+	* limitations under the License.
+	* under the License.
+	*/
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+	<scm>
+		<connection>scm:git:git://github.com/liveSense/org.liveSense.sample.gwt.notes.git</connection>
+		<developerConnection>scm:git:git://github.com/liveSense/org.liveSense.sample.gwt.notes.git</developerConnection>
+		<url>https://github.com/liveSense/org.liveSense.sample.gwt.notes</url>
+	</scm>
+
+	<artifactId>org.liveSense.jcr.explorer</artifactId>
+	<packaging>bundle</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>liveSense :: JCR :: Explorer</name>
+	<description>liveSense JCR Content explorer. This based on https://code.google.com/p/jackrabbitexplorer/
+	</description>
+	<properties>
+		<gwt.project>Explorer</gwt.project>
+	</properties>
+
+	<build>
+<!-- 
+		<outputDirectory>${basedir}/war/WEB-INF/classes</outputDirectory>
+		<resources>
+			<resource>
+				<targetPath>${basedir}/war</targetPath>
+				<directory>src/main/gwthosted-webapp</directory>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<targetPath>${basedir}/target</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+-->
+		<plugins>
+<!-- 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/client/**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+-->
+			<!--  Cleaning  -->
+<!-- 
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>war</directory>
+						</fileset>
+						<fileset>
+							<directory>gwt-unitCache</directory>
+						</fileset>
+						<fileset>
+							<directory>target</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+-->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-scr-scrdescriptor</id>
+						<goals>
+							<goal>scr</goal>
+						</goals>
+						<configuration>
+							<sourceExcludes>**/client/**</sourceExcludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+<!-- 
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<archive>
+						/</!/-/- add the generated manifest to the war /-/-/>
+						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+						
+					</archive>
+					<webResources>
+						/</!/-/- Legal stuff /-/-/>
+						<resource>
+							<directory>${project.build.outputDirectory}/META-INF</directory>
+							<targetPath>META-INF</targetPath>
+							<includes>
+								<include>LICENSE*</include>
+								<include>NOTICE*</include>
+								<include>DISCLAIMER</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+-->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+<!--
+				<executions>
+					<execution>
+						<id>osgi-jar</id>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+						<phase>prepare-package</phase>
+					</execution>
+				</executions>
+-->
+				<configuration>
+					<supportedProjectTypes>
+						<supportedProjectType>jar</supportedProjectType>
+						<supportedProjectType>bundle</supportedProjectType>
+						<supportedProjectType>war</supportedProjectType>
+					</supportedProjectTypes>
+					<instructions>
+						<Import-Package>
+							com.smartgwt.client.*;resolution:=optional,
+							*
+						</Import-Package>
+						<Export-Package>
+							org.liveSense.jcr.explorer.*;version=${project.version}
+						</Export-Package>
+
+						<DynamicImport-Package>
+							*
+						</DynamicImport-Package>
+
+						<Sling-Initial-Content>
+							jcr-nodes;overwrite:=false;uninstall:=true;overwriteProperties=true,
+							jcr-contents;overwrite:=false;uninstall:=true;overwriteProperties=true,
+							jcr-scripts;path:=/apps;overwrite:=true;uninstall:=true;overwriteProperties=true,
+							gwt;path:=/jcrexplorer;overwrite:=true;uninstall:=true;overwriteProperties=true
+						</Sling-Initial-Content>
+<!-- 						<Bundle-ClassPath>WEB-INF/classes</Bundle-ClassPath> -->
+						<Include-Resource>
+							jcr-nodes=src/main/resources/jcr-nodes,
+							jcr-contents=src/main/resources/jcr-contents,
+							jcr-scripts=src/main/resources/jcr-scripts,
+							gwt=target/${project.artifactId}-${project.version},
+							{maven-resources}
+						</Include-Resource>
+<!-- 
+							org/liveSense/jcr/explorer/domain=war/WEB-INF/classes/org/liveSense/jcr/explorer/domain,
+							org/liveSense/jcr/explorer/service=war/WEB-INF/classes/org/liveSense/jcr/explorer/service,
+							org/liveSense/jcr/explorer/server=war/WEB-INF/classes/org/liveSense/jcr/explorer/server,
+ -->
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<configuration>
+							<module>${project.artifactId}.${gwt.project}</module>
+							<runTarget>http://localhost:8080/jcrexplorer</runTarget>
+						</configuration>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<module>${project.artifactId}.${gwt.project}</module>
+					<runTarget>http://localhost:8080/jcrexplorer</runTarget>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.auth.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.base</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.mime</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.gwt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.securityManager</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+
+		<!-- JSP -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.jstl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.json</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.jsp.taglib</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.jackrabbit.accessmanager</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.languageSelector</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.smartgwt</groupId>
+			<artifactId>smartgwt</artifactId>
+				<version>3.1</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>smartclient</id>
+			<name>smartclient.com</name>
+			<url>http://www.smartclient.com/maven2</url>
+		</repository>
+	</repositories>
+
+<!-- 
+		<dependency>
+			<groupId>com.smartgwt</groupId>
+			<artifactId>smartgwt</artifactId>
+			<version>2.5-patch</version>
+		</dependency>
+ -->
+</project>
+
+

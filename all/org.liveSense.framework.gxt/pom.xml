@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+    
+  <parent>
+      <groupId>com.github.livesense</groupId>
+      <artifactId>org.liveSense.parent</artifactId>
+      <version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+  </parent>
+  <scm>
+      <connection>scm:git:git://github.com/liveSense/org.liveSense.framework.gxt.git</connection>
+      <developerConnection>scm:git:git://github.com/liveSense/org.liveSense.framework.gxt.git</developerConnection>
+      <url>https://github.com/liveSense/org.liveSense.framework.gxt</url>
+  </scm>  
+    
+    <artifactId>org.liveSense.framework.gxt</artifactId>
+	<packaging>bundle</packaging>
+	<version>${gxt.version}_1-SNAPSHOT</version>
+	<name>liveSense :: Framework :: GXT (ExtGWT)</name>
+	<description>liveSense Ext GXT framework</description>
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>maven-sling-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- Iniial bundle configurations (for example FsResource) -->
+						<Felix-Initial-Configuration>
+						</Felix-Initial-Configuration>
+		
+						<!-- initial content to be loaded on bundle installation -->
+						<Sling-Initial-Content>
+							SLING-INF/content;overwrite:=true;uninstall:=true
+						</Sling-Initial-Content>
+		
+						<Export-Package>
+							com.sencha.gxt.*
+						</Export-Package>
+		
+						<Import-Package>
+							*;resolution:=optional
+						</Import-Package>
+		
+						<!-- Copy the files from filesystem to Bundle -->
+						<Include-Resource>
+							{maven-resources}
+						</Include-Resource>
+		
+						<Embed-Dependency>
+							gxt;inline="**"
+						</Embed-Dependency>
+						
+						<DynamicImport-Package>
+							com.google.gwt.*, com.google.web.bindery.*
+						</DynamicImport-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+	<dependencies>
+	
+	<dependency>
+		<groupId>com.sencha.gxt</groupId>
+		<artifactId>gxt</artifactId>
+		<version>${gxt.version}</version>
+	</dependency>
+    <!--         
+		<dependency>
+			<groupId>com.extjs</groupId>
+			<artifactId>gxt</artifactId>
+			<version>2.2.5-gwt22</version>
+			<scope>system</scope>
+      			<systemPath>${basedir}/lib/gxt-2.2.5-gwt22.jar</systemPath>
+		</dependency>
+ 	-->
+	</dependencies>
+</project>
+
+

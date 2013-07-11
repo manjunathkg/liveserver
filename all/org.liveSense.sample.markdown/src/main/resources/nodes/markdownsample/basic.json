@@ -1,0 +1,8 @@
+{
+    "menuOrder": "2",
+    "title": "liveSense Markdown",
+    "portalName": "markdownsample",
+    "content": "<div class='row-fluid'><div class='span12'><h4>Basic Markdown sample(s)</h4></div></div><hr>",
+    "menu": "Basic Features",
+    "jcr:primaryType": "markdownsample:markdownpage"
+}

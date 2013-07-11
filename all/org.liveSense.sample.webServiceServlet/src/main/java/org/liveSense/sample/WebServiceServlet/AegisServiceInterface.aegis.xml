@@ -1,0 +1,7 @@
+<mappings>
+    <mapping name="AegisServiceInterface">
+        <method name="helloWorld">
+            <parameter index="0" mappedName="name" nillable='false' minOccurs="1"/>
+        </method>
+    </mapping>
+</mappings>

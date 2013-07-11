@@ -1,0 +1,224 @@
+<installation version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="izpack.xsd">
+
+    <!-- The info section -->
+	<info>
+		<appname>liveSense</appname>
+		<appversion>1.0.0-SNAPSHOT</appversion>
+		<authors>
+			<author email="livesense-dev@googlegroups.com" name="liveSense"/>
+			<author email="robson@semmi.se" name="Robert Csakany"/>
+			<author email="janos.dios@allretailconsulting.com" name="Janos Dios"/>
+		</authors>
+		<url>http://github.com/liveSense/</url>
+		<javaversion>1.6</javaversion>
+		<requiresjdk>no</requiresjdk>
+		<uninstaller write="yes"/>
+		<run-privileged/>
+		<summarylogfilepath>$INSTALL_PATH/installinfo/Summary.htm</summarylogfilepath>
+	</info>
+
+    <!-- Flexible and in the screen proportions -->
+	<guiprefs height="700" resizable="yes" width="870">
+        <!-- GUI addaption for more informations see "Modifying the GUI" in the documentation -->
+		<modifier key="layoutAnchor" value="CENTER"/>
+		<modifier key="headingPanelCounter" value="progressbar"/>
+		<modifier key="headingPanelCounterPos" value="inNavigationPanel"/>
+		<modifier key="allYGap" value="4"/>
+		<modifier key="paragraphYGap" value="10"/>
+		<modifier key="filler1YGap" value="5"/>
+		<modifier key="filler3XGap" value="10"/>
+	</guiprefs>
+
+	<variables>
+		<variable name="DesktopShortcutCheckboxEnabled" value="true"/>
+	</variables>
+
+    <!-- We include every langpack -->
+	<locale>
+		<langpack iso3="hun"/>
+		<langpack iso3="eng"/>
+	</locale>
+
+    <!-- The resources needed by the various panels -->
+	<resources>
+		<res src="install-readme.html" id="HTMLInfoPanel.info"/>
+		<res src="license.html" id="HTMLLicencePanel.licence"/>
+		<res src="splash.png" id="installer.langsel.img"/>
+		<res src="Win_shortcutSpec.xml" id="Win_shortcutSpec.xml"/>
+		<res src="Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml"/>
+		<res src="userInputSpec.xml" id="userInputSpec.xml"/>
+		<res src="ProcessPanel.Spec.xml" id="ProcessPanel.Spec.xml"/>
+<!-- 		<res src="RegistrySpec.xml" id="RegistrySpec.xml"/> -->
+
+		<res src="border1.png" id="Installer.image.0"/>
+		<res src="border1.png" id="Installer.image.hellopanel"/>
+		<res src="border2.png" id="Installer.image.infopanel"/>
+		<res src="border3.png" id="Installer.image.licensepanel"/>
+		<res src="border4.png" id="Installer.image.targetpanel"/>
+		<res src="border5.png" id="Installer.image.packspanel"/>
+		<res src="border5.png" id="Installer.image.summarypanel"/>
+		<res src="border5.png" id="Installer.image.datadirectory"/>
+		<res src="border5.png" id="Installer.image.serversettings"/>
+		<res src="border5.png" id="Installer.image.installpanel"/>
+		<res src="border6.png" id="Installer.image.changepasswordpanel"/>        
+		<res src="border7.png" id="Installer.image.shortcutpanel"/>
+		<res src="border8.png" id="Installer.image.finishpanel"/>
+
+	</resources>
+	<jar src="repositoryinstaller.jar" stage="install"/>
+
+    <!-- The panels in a classic order -->
+	<panels>
+		<panel classname="CheckedHelloPanel" id="hellopanel"/>
+		<panel classname="HTMLInfoPanel" id="infopanel" encoding="UTF-8"/>
+		<panel classname="HTMLLicencePanel" id="licensepanel"/>
+		<panel classname="TargetPanel" id="targetpanel"/>
+		<panel classname="PacksPanel" id="packspanel"/>
+		<panel classname="SummaryPanel" id="summarypanel"/>
+		<panel classname="UserInputPanel" id="datadirectory"/>
+		<panel classname="UserInputPanel" id="serversettings"/>
+		<panel classname="InstallPanel" id="installpanel"/>
+		<panel classname="ProcessPanel" id="changepasswordpanel"/>
+		<!-- <panel classname="ShortcutPanel" id="shortcutpanel"/> -->
+		<panel classname="FinishPanel" id="finishpanel"/>
+	</panels>
+	
+    <!-- The listeners section for CustomActions -->
+	<listeners>
+		<listener classname="SummaryLoggerInstallerListener" stage="install"/>
+		<listener classname="RegistryInstallerListener" stage="install">
+			<os family="windows"/>
+		</listener>
+		<listener classname="RegistryUninstallerListener" stage="uninstall">
+			<os family="windows"/>
+		</listener>
+<!-- 	<listener classname="ChmodInstallerListener" stage="install">
+			<os family="windows"/>
+		</listener>
+-->
+	</listeners>
+    
+    <!-- The packs section -->
+	<packs>
+
+        <!-- The core files -->
+		<pack name="liveSense core" required="yes">
+			<description>Remote Invoice core files.</description>
+			<fileset dir="" targetdir="$INSTALL_PATH">
+				<os family="unix"></os>
+				<include name="bin/**/*"/>
+			</fileset>
+			<fileset dir="" targetdir="$INSTALL_PATH">
+				<os family="windows"></os>
+				<include name="bat/**/*"/>
+			</fileset>
+			<fileset dir="" targetdir="$INSTALL_PATH">
+				<include name="conf/**/*"/>
+				<include name="scripts/**/*"/>
+				<include name="lib/core/**/*"/>
+				<include name="lib/extended/**/*"/>
+				<include name="lib/groovy/**/*"/>
+				<include name="templates/**/*"/>
+				<include name="wrapper.jar"/>
+				<include name="wrapperApp.jar"/>
+				<include name="launchpad.jar"/>
+				<include name="yajsw.policy.txt"/>
+			</fileset>
+			<fileset dir="" targetdir="$data.dir">
+				<include name="jackrabbit/**/*"/>
+				<include name="logback.xml"/>
+				<additionaldata key="permission.file" value="0666"/>
+			</fileset>
+			<parsable type="shell" targetfile="$INSTALL_PATH/conf/wrapper.conf"/>
+			<parsable type="shell" targetfile="$INSTALL_PATH/bat/setenv.bat">
+				<os family="windows"></os>
+			</parsable>
+			<parsable type="shell" targetfile="$INSTALL_PATH/bin/setenv.sh">
+				<os family="unix"></os>
+			</parsable>
+			<parsable type="shell" targetfile="$INSTALL_PATH/bin/setDbPermission.sh">
+				<os family="unix"></os>
+			</parsable>
+
+			<parsable type="shell" targetfile="$data.dir/logback.xml"/>
+
+			<executable targetfile="$INSTALL_PATH/bin/installDaemonNoPriv.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/queryDaemon.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/runConsole.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/setenv.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/startDaemon.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/startDaemonNoPriv.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/stopDaemon.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/stopDaemonNoPriv.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/systemTrayIcon.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+x			<executable targetfile="$INSTALL_PATH/bin/uninstallDaemonNoPriv.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/wrapper.sh" type="bin" stage="never">
+				<os family="unix"/>
+			</executable>
+			
+			<!-- Unix -->
+			<executable targetfile="$INSTALL_PATH/bin/setDbPermission.sh" type="bin" stage="never" keep="true">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/installDaemon.sh" type="bin" stage="never" keep="true">
+				<os family="unix"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bin/uninstallDaemon.sh" type="bin" stage="never" keep="true">
+				<os family="unix"/>
+			</executable>
+			
+
+			<!-- Windows -->
+			<executable targetfile="$INSTALL_PATH/bat/installService.bat" type="bin" stage="never" keep="true">
+				<os family="windows"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bat/systemTrayIcon.bat" type="bin" stage="never" keep="true">
+				<os family="windows"/>
+			</executable>
+			<executable targetfile="$INSTALL_PATH/bat/uninstallService.bat" type="bin" stage="never" keep="true">
+				<os family="windows"/>
+			</executable>
+
+		</pack>
+	</packs>
+
+    <!-- The native libraries to add -->
+	<natives>
+		<native type="izpack" name="ShellLink.dll" stage="install">
+			<os family="windows"/>
+		</native>
+		<native type="izpack" name="ShellLink_x64.dll" stage="install">
+			<os family="windows"/>
+		</native>
+		<native type="izpack" name="WinSetupAPI.dll" stage="install">
+			<os family="windows"/>
+		</native>
+		<native type="izpack" name="WinSetupAPI_x64.dll" stage="install">
+			<os family="windows"/>
+		</native>
+		<native type="3rdparty" name="COIOSHelper.dll" stage="both">
+			<os family="windows"/>
+		</native>
+	</natives>
+
+</installation>

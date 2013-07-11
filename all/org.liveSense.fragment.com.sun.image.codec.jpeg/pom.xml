@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+  <parent>
+      <groupId>com.github.livesense</groupId>
+      <artifactId>org.liveSense.parent</artifactId>
+      <version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+  </parent>
+  <scm>
+      <connection>scm:git:git://github.com/liveSense/org.liveSense.misc.image.codec.jpeg.git</connection>
+      <developerConnection>scm:git:git://github.com/liveSense/org.liveSense.misc.image.codec.jpeg.git</developerConnection>
+      <url>https://github.com/liveSense/org.liveSense.misc.image.codec.jpeg</url>
+  </scm>  
+
+    <artifactId>org.liveSense.fragment.com.sun.image.codec.jpeg</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>liveSense :: Extension :: Sun JPEG image codec extension</name>
+
+    <description>
+        This bundle extends the System Bundle export
+        list with the com.sun.image.codec.jpeg package such
+        that OSGi bundles may refer to Sun's JPEG implementation
+        without the OSGi framework itself to provide it in a
+        non-portable way.
+    </description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <forceCreation>true</forceCreation>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                        <manifestEntries>
+                            <Export-Package>com.sun.image.codec.jpeg</Export-Package>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bundle-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Category>liveSense</Bundle-Category>
+                        <Fragment-Host>system.bundle; extension:=framework</Fragment-Host>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

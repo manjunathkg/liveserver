@@ -1,0 +1,6 @@
+<module>
+	<inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
+	<inherits name="com.google.web.bindery.autobean.AutoBean"/>
+	<inherits name="org.liveSense.misc.queryBuilder.gwt"/>
+ 	<source path="gwt"/> 	
+ </module>

@@ -1,0 +1,301 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+
+	<!-- TODO -->
+
+	<artifactId>org.liveSense.sample.gwt.notesRequestFactory</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+    
+	<name>liveSense :: Sample :: GWT RPC Notes Request Factory</name>
+	<description>liveSense gwt sample using RequestFactory.</description>
+
+	<packaging>bundle</packaging>
+
+	<properties>
+		<gwt.project>notesRequestFactory</gwt.project>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<properties>
+				<!-- All GWT modules -->
+				<!-- <gwt.module>${project.artifactId}.${gwt.project}</gwt.module> -->
+				<gwt.draftCompile>false</gwt.draftCompile>
+			</properties>
+			<activation>
+				<file>
+					<missing>${basedir}/development</missing>
+				</file>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>development</id>
+			<properties>
+				<!-- Development module only -->
+				<gwt.module>${project.artifactId}.${gwt.project}Development</gwt.module>
+				<gwt.draftCompile>true</gwt.draftCompile>
+			</properties>
+			<activation>
+				<file>
+					<exists>${basedir}/development</exists>
+				</file>
+			</activation>
+		</profile>
+
+	</profiles>
+
+	<build>
+		<outputDirectory>${basedir}/war/WEB-INF/classes</outputDirectory>
+
+		<resources>
+			<resource>
+				<targetPath>${basedir}/war</targetPath>
+				<directory>src/main/gwthosted-webapp</directory>
+				<filtering>false</filtering>
+			</resource>
+
+			<resource>
+				<targetPath>${basedir}/target</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+
+			<!-- For prototype verifier only -->
+			<resource>
+				<targetPath>${basedir}/war/WEB-INF/classes</targetPath>
+				<directory>src/main/gwthosted-webapp</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<!-- Cleaning -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>war</directory>
+						</fileset>
+						<fileset>
+							<directory>gwt-unitCache</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+                        <Export-Package>
+                            org.liveSense.sample.gwt.notesRequestFactory.*;version=${project.version}
+                        </Export-Package>
+						<!-- Copy the files from filesystem to Bundle -->
+						<Include-Resource>
+							SLING-INF/jcr-contents=src/main/resources/jcr-contents,
+							SLING-INF/jcr-nodes=src/main/resources/jcr-nodes,
+							SLING-INF/jcr-nodetypes=src/main/resources/jcr-nodetypes,
+							SLING-INF/osgi-configurations=src/main/resources/osgi-configurations,
+							SLING-INF/sling-scripts=src/main/resources/sling-scripts,
+							SLING-INF/gwt-app=target/${project.artifactId}-${project.version},
+							META-INF=target/maven-shared-archive-resources/META-INF,
+							OSGI-INF=target/scr-plugin-generated/OSGI-INF,
+							org/liveSense/sample/gwt/notesRequestFactory/server=war/WEB-INF/classes/org/liveSense/sample/gwt/notesRequestFactory/server,
+							org/liveSense/sample/gwt/notesRequestFactory/shared=war/WEB-INF/classes/org/liveSense/sample/gwt/notesRequestFactory/shared
+						</Include-Resource>
+
+						<!-- Initial bundle configurations (for example FsResource) -->
+						<Felix-Initial-Configuration>
+							SLING-INF/osgi-configurations
+						</Felix-Initial-Configuration>
+						<!-- initial content to be loaded on bundle installation -->
+						<Sling-Initial-Content>
+                            SLING-INF/jcr-nodes;overwrite:=false;uninstall:=true;overwriteProperties=true,
+							SLING-INF/jcr-contents;overwrite:=false;uninstall:=true;overwriteProperties=true
+						</Sling-Initial-Content>
+						<!-- Delegate Bundle content as resource -->
+						<Sling-Bundle-Resources>
+							/gwt;path:=/SLING-INF/gwt-app,
+							/apps;path:=/SLING-INF/sling-scripts
+						</Sling-Bundle-Resources>
+						<!-- node types to be created -->
+						<Sling-Nodetypes>
+						</Sling-Nodetypes>
+
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<!-- GWT compilation -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<configuration>
+					<!-- extraJvmArgs only to avoid out of memory errors while compiling GWT -->
+					<runTarget>/index.html</runTarget>
+					<extraJvmArgs>-Xms128M -Xmx1536M -Xss256M -XX:MaxPermSize=256M</extraJvmArgs>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Skip GwtTest by JUnit in maven -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/*GwtTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>com.google.web.bindery</groupId>
+            <artifactId>requestfactory-apt</artifactId>
+            <version>${gwt.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.web.bindery</groupId>
+            <artifactId>requestfactory-server</artifactId>
+            <version>${gwt.version}</version>
+        </dependency>
+
+		<!-- liveSense dependencies -->
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.queryBuilder</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.i18n</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.jstl</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.json</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.securityManager</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.gwt</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Sling dependencies -->
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.jsp.taglib</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.auth.core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Felix, JaCkRabbit dependencies -->
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- GWT Hosted mode - For JNDI Database access -->
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty-plus</artifactId>
+			<version>6.1.19</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty-naming</artifactId>
+			<version>6.1.19</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+
+	</dependencies>
+
+</project>

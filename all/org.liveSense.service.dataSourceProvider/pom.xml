@@ -1,0 +1,204 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+	<scm>
+		<connection>scm:git:git://github.com/liveSense/org.liveSense.service.dataSourceProvider.git</connection>
+		<developerConnection>scm:git:git://github.com/liveSense/org.liveSense.service.dataSourceProvider.git</developerConnection>
+		<url>https://github.com/liveSense/org.liveSense.service.dataSourceProvider</url>
+	</scm>
+
+	<artifactId>org.liveSense.service.dataSourceProvider</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>bundle</packaging>
+	<name>liveSense :: Service :: JDBC DataSource pooler</name>
+	<description>Simple DBCP pooled datasource provider.</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Import-Package>
+							!org.jboss.resource.adapter.jdbc,!com.mchange.v2.c3p0,!org.jboss.resource.adapter.jdbc.vendor,*
+						</Import-Package>
+						<Export-Package>
+							org.liveSense.service.DataSourceProvider.*;version=${project.version},
+							org.liveSense.api.*;version=${project.version}
+						</Export-Package>
+						<DynamicImport-Package>
+							*
+						</DynamicImport-Package>
+						<Include-Resource>
+							{maven-resources}
+						</Include-Resource>
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.osgi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.eventadmin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbutils</groupId>
+			<artifactId>commons-dbutils</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.queryBuilder</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo2-api</artifactId>
+			<version>2.3-eb</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.core</artifactId>
+		</dependency>
+
+		<!-- JDBC Drivers for TEST -->
+
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.firebirdsql.jdbc</groupId>
+			<artifactId>jaybird</artifactId>
+			<version>2.1.6</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>jms</artifactId>
+					<groupId>javax.jms</groupId>
+				</exclusion>
+
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.16</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Oracle JDBC driver is not published in public repositories due the license restrictions. Please replace with yours -->
+		<!-- 
+		Step 1- Download the Oracle JDBC driver http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html
+		Step 2- install your Oracle JDBC driver in your local Maven repository
+		In this example, we assume that your Oracle JDBC driver is in a file called classes12_g.jar
+		c:\oracle\jdbc>dir 23/06/2008  13:02        2 044 594 classes12_g.jar
+		Let's assume you want to register your driver under the group id 'com.oracle', use 'oracle' as the name of the artifact id and that you want the version to be '10.2.0.4'.
+		You can now run the following command:
+		c:\oracle\jdbc>mvn install:install-file -Dfile=classes12_g.jar -DgroupId=com.oracle -DartifactId=ojdbc -Dversion=10.2.0.4 -Dpackaging=jar -DgeneratePom=true
+		 -->
+		<!-- 		
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>10.2.0.4</version>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+		-->
+		
+		<dependency>
+			<groupId>junit-ext</groupId>
+			<artifactId>junit-ext</artifactId>
+			<version>1.0</version>
+			<systemPath>${basedir}/lib/junit-ext-1.0-junit-4.4-RC-3.jar</systemPath>
+			<scope>system</scope>
+		</dependency>
+
+	</dependencies>
+</project>

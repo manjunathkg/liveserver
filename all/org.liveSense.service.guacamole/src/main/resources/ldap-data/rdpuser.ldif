@@ -1,0 +1,129 @@
+dn: cn=rdpuser, ou=schema
+objectclass: metaSchema
+objectclass: top
+cn: rdpuser
+
+dn: ou=attributeTypes, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: attributetypes
+
+dn: m-oid=1.3.6.1.4.1.33430.1.1.2.1.36, ou=attributeTypes, cn=rdpuser, ou=schema
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.3.6.1.4.1.33430.1.1.2.1.36
+m-name: rdpUserName
+m-description: RDP User Name
+m-equality: caseExactIA5Match
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singleValue: TRUE
+
+dn: m-oid=1.3.6.1.4.1.33430.1.1.2.1.37, ou=attributeTypes, cn=rdpuser, ou=schema
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.3.6.1.4.1.33430.1.1.2.1.37
+m-name: rdpPassword
+m-description: RDP Password
+m-equality: caseExactIA5Match
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singleValue: TRUE
+
+dn: m-oid=1.3.6.1.4.1.33430.1.1.2.1.38, ou=attributeTypes, cn=rdpuser, ou=schema
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.3.6.1.4.1.33430.1.1.2.1.38
+m-name: rdpHost
+m-description: RDP Host
+m-equality: caseExactIA5Match
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singleValue: TRUE
+
+dn: m-oid=1.3.6.1.4.1.33430.1.1.2.1.39, ou=attributeTypes, cn=rdpuser, ou=schema
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.3.6.1.4.1.33430.1.1.2.1.39
+m-name: rdpPort
+m-description: RDP Port
+m-equality: caseExactIA5Match
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singleValue: TRUE
+
+dn: m-oid=1.3.6.1.4.1.33430.1.1.2.1.40, ou=attributeTypes, cn=rdpuser, ou=schema
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.3.6.1.4.1.33430.1.1.2.1.40
+m-name: rdpProtocol
+m-description: RDP Protocol
+m-equality: caseExactIA5Match
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singleValue: TRUE
+
+dn: ou=comparators, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: comparators
+
+dn: ou=ditContentRules, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: ditcontentrules
+
+dn: ou=ditStructureRules, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: ditstructurerules
+
+dn: ou=matchingRules, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: matchingrules
+
+dn: ou=matchingRuleUse, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: matchingruleuse
+
+dn: ou=nameForms, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: nameforms
+
+dn: ou=normalizers, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: normalizers
+
+dn: ou=objectClasses, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: objectClasses
+
+dn: m-oid=1.3.6.1.4.1.33430.1.1.2.2.6, ou=objectClasses, cn=rdpuser, ou=schema
+objectclass: metaObjectClass
+objectclass: metaTop
+objectclass: top
+m-oid: 1.3.6.1.4.1.33430.1.1.2.2.6
+m-name: rdpUser
+m-description: RDP User
+m-typeObjectClass: AUXILIARY
+m-may: rdpUserName
+m-may: rdpPassword
+m-may: rdpHost
+m-may: rdpPort
+m-may: rdpProtocol
+
+dn: ou=syntaxCheckers, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: syntaxcheckers
+
+dn: ou=syntaxes, cn=rdpuser, ou=schema
+objectclass: organizationalUnit
+objectclass: top
+ou: syntaxes
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+      <groupId>com.github.livesense</groupId>
+      <artifactId>org.liveSense.parent</artifactId>
+      <version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+  </parent>
+  <scm>
+      <connection>scm:git:git://github.com/liveSense/org.liveSense.launchpad.git</connection>
+      <developerConnection>scm:git:git://github.com/liveSense/org.liveSense.launchpad.git</developerConnection>
+      <url>https://github.com/liveSense/org.liveSense.launchpad</url>
+  </scm>  
+  
+    <properties>
+        <karaf.version>2.2.10</karaf.version>
+    </properties>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>org.liveSense.karaf</artifactId>
+	<packaging>pom</packaging>
+
+	<version>1.0.0-SNAPSHOT</version>
+	<name>liveSense :: Karaf</name>
+	<description>liveSense ServiceMix/Karaf features</description>
+
+    <modules>
+		<module>slingbootstrap</module>
+		<module>features</module>
+        <module>branding</module>
+        <module>assemblies</module>
+    </modules>
+</project>
+
+
+
+
+
+
+
+
+
+
+

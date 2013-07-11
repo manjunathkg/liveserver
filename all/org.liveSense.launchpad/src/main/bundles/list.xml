@@ -1,0 +1,1704 @@
+<?xml version="1.0"?>
+<bundles>
+	<!-- Launchpad default packages -->
+	<startLevel>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.jdbc.h2</artifactId>
+			<version>${liveSense.jdbc.h2.version}</version>
+		</bundle>
+<!-- 		<bundle> -->
+<!-- 			<groupId>com.github.livesense</groupId> -->
+<!-- 			<artifactId>org.liveSense.jdbc.mysql</artifactId> -->
+<!-- 			<version>${liveSense.jdbc.mysql.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>com.github.livesense</groupId> -->
+<!-- 			<artifactId>org.liveSense.jdbc.jaybird</artifactId> -->
+<!-- 			<version>${liveSense.jdbc.jaybird.version}</version> -->
+<!-- 		</bundle> -->
+		<bundle>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.3</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>2.1</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>1.6</version>
+		</bundle>
+		<bundle>
+			<groupId>commons-dbutils</groupId>
+			<artifactId>commons-dbutils</artifactId>
+			<version>1.4</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-jexl</artifactId>
+			<version>2.1.1</version>
+		</bundle>
+		<bundle>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>49.1</version>
+		</bundle>
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.commons-vfs</artifactId> -->
+<!-- 			<version>1.0_6</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>net.sf.transmorph</groupId> -->
+<!-- 			<artifactId>transmorph</artifactId> -->
+<!-- 			<version>3.1.1</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>com.googlecode.guava-osgi</groupId> -->
+<!-- 			<artifactId>guava-osgi</artifactId> -->
+<!-- 			<version>10.0.0</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.commons-httpclient -->
+<!-- 			</artifactId> -->
+<!-- 			<version>3.1_6</version> -->
+<!-- 		</bundle> -->
+		<bundle>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore-osgi</artifactId>
+			<version>4.1.2</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient-osgi</artifactId>
+			<version>4.1.2</version>
+		</bundle>
+		<bundle>
+			<groupId>de.twentyeleven.skysail</groupId>
+			<artifactId>org.json-osgi</artifactId>
+			<version>20080701</version>
+		</bundle>
+
+		<!-- Jasper reports -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.xalan</artifactId> -->
+<!-- 			<version>2.7.1_4</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.bcel</artifactId> -->
+<!-- 			<version>5.2_4</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.xerces</artifactId> -->
+<!-- 			<version>2.9.1_5</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.xmlresolver</artifactId> -->
+<!-- 			<version>1.2_4</version> -->
+<!-- 		</bundle> -->
+
+		<!-- For XStream -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.xstream</artifactId> -->
+<!-- 			<version>1.4.1_1</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.xmlpull</artifactId> -->
+<!-- 			<version>1.1.3.1_2</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.xpp3</artifactId> -->
+<!-- 			<version>1.1.4c_5</version> -->
+<!-- 		</bundle> -->
+
+		<!-- Freemarker -->
+		<bundle>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.freemarker</artifactId>
+			<version>2.3.18_1</version>
+		</bundle>
+
+		<!-- Xerces -->
+		<bundle>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.xerces</artifactId>
+			<version>2.10.0_1</version>
+		</bundle>
+
+		<!-- Mail API -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.javax.mail</artifactId> -->
+<!-- 			<version>1.4.1_5</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.javamail-api-1.4</artifactId> -->
+<!-- 			<version>2.1.0</version> -->
+<!-- 		</bundle> -->
+
+
+ 		<!-- CGLib  -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.cglib</artifactId> -->
+<!-- 			<version>2.1_3_4</version> -->
+<!-- 		</bundle> -->
+
+		<!-- Bouncy castle utilities -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.bouncycastle</groupId> -->
+<!-- 			<artifactId>bcprov-jdk16</artifactId> -->
+<!-- 			<version>1.46</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.bouncycastle</groupId> -->
+<!-- 			<artifactId>bcprov-ext-jdk16</artifactId> -->
+<!-- 			<version>1.46</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.bouncycastle</groupId> -->
+<!-- 			<artifactId>bcmail-jdk16</artifactId> -->
+<!-- 			<version>1.46</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.bouncycastle</groupId> -->
+<!-- 			<artifactId>bctsp-jdk16</artifactId> -->
+<!-- 			<version>1.46</version> -->
+<!-- 		</bundle> -->
+
+		<!-- OSGi enterprise -->
+		<bundle>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.enterprise</artifactId>
+			<version>4.2.0</version>
+		</bundle>
+
+		<!-- Spring framework -->
+		<bundle>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
+			<version>1.0_6</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-io</artifactId>
+			<version>1.2.1</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-extender</artifactId>
+			<version>1.2.1</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-core</artifactId>
+			<version>1.2.1</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-asm</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</bundle>
+
+		<!-- JSR 303 Bean validation-->
+		<!--  There is a problee with the  Validation.buildDefaultValidatorFactory()
+			This is the J2EE SPI spec-implementation where the implementation classes described
+			in META-INF/service . The problem is in OSGi context the bundles have own claaassloader so
+			the Spec has not seen the implementation's classloader.
+			http://gnodet.blogspot.hu/2008/05/jee-specs-in-osgi.html
+		-->
+		<!--
+		<bundle>
+			<groupId>org.apache.servicemix.specs</groupId>
+			<artifactId>org.apache.servicemix.specs.jsr303-api-1.0.0</artifactId>
+			<version>2.1.0</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.hibernate-validator</artifactId>
+			<version>4.1.0.Final_3</version>
+		</bundle>
+		-->
+		
+		
+		
+		
+		<!-- Bundles for activity -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.asm</artifactId> -->
+<!-- 			<version>3.3.1_1</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.wsdl4j</artifactId> -->
+<!-- 			<version>1.6.2_3</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.mybatis</artifactId> -->
+<!-- 			<version>3.0.2_1</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.drools</artifactId> -->
+<!-- 			<version>5.1.1_2</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.jdt-core</artifactId> -->
+<!-- 			<version>3.2.3_5</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.quartz</artifactId> -->
+<!-- 			<version>1.8.4_2</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.antlr</artifactId> -->
+<!-- 			<version>2.7.7_4</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.asm</artifactId> -->
+<!-- 			<version>2.2.3_5</version> -->
+<!-- 		</bundle> -->
+
+		<!-- Activity -->
+		<bundle>
+			<groupId>com.fasterxml.uuid</groupId>
+			<artifactId>java-uuid-generator</artifactId>
+			<version>3.1.2</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>${activiti.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-osgi</artifactId>
+			<version>${activiti.version}</version>
+		</bundle>
+
+		<!-- ApacheDS -->
+		<bundle>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.ehcache</artifactId>
+			<version>2.5.2_1</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.mina</groupId>
+			<artifactId>mina-core</artifactId>
+			<version>2.0.4</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-j2ee-connector_1.5_spec</artifactId>
+			<version>2.0.0</version>
+		</bundle>
+
+		<!-- Apache CXF -->        
+<!--         <bundle> -->
+<!--             <groupId>org.apache.servicemix.bundles</groupId> -->
+<!--             <artifactId>org.apache.servicemix.bundles.jsr305</artifactId> -->
+<!--             <version>1.3.9_1</version> -->
+<!--         </bundle> -->
+            
+<!--   		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.jsr311-api-1.1.1</artifactId> -->
+<!-- 			<version>1.9.0</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.geronimo.specs</groupId> -->
+<!-- 			<artifactId>geronimo-ws-metadata_2.0_spec</artifactId> -->
+<!-- 			<version>1.1.3</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.activation-api-1.1</artifactId> -->
+<!-- 			<version>2.1.0</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.neethi</groupId> -->
+<!-- 			<artifactId>neethi</artifactId> -->
+<!-- 			<version>3.0.2</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.ws.xmlschema</groupId> -->
+<!-- 			<artifactId>xmlschema-core</artifactId> -->
+<!-- 			<version>2.0.3</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.dom4j</artifactId> -->
+<!-- 			<version>1.6.1_5</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.fastinfoset</artifactId> -->
+<!-- 			<version>1.2.12_1</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.jaxb-impl</artifactId> -->
+<!-- 			<version>2.2.4_2</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.jdom</artifactId> -->
+<!-- 			<version>1.1_4</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.java-persistence-api-2.0</artifactId> -->
+<!-- 			<version>1.7.0</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.jaxb-api-2.2</artifactId> -->
+<!-- 			<version>2.1.0</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.jaxws-api-2.2</artifactId> -->
+<!-- 			<version>2.1.0</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.jsr339-api-m10</artifactId> -->
+<!-- 			<version>2.1.0</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.specs</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.specs.saaj-api-1.3</artifactId> -->
+<!-- 			<version>1.9.0</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.rhino</artifactId> -->
+<!-- 			<version>1.7R2_3</version> -->
+<!-- 		</bundle> -->
+
+
+
+		<bundle>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>${jackson.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>${jackson.version}</version>
+		</bundle>
+
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-api</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-bindings-soap</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-bindings-xml</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-javascript</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-core</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-databinding-aegis</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-databinding-jaxb</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-frontend-jaxrs</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-frontend-jaxws</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-frontend-simple</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-frontend-js</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-transports-http</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.cxf</groupId> -->
+<!-- 			<artifactId>cxf-rt-ws-policy</artifactId> -->
+<!-- 			<version>${cxf.version}</version> -->
+<!-- 		</bundle> -->
+
+		<!-- DOSGi -->
+		<!-- For later usaege. There is a major problem
+		with JAX-WS and SCR now, all interface is registered to /
+		-->
+		<!--
+		<bundle>
+			<groupId>org.apache.cxf.dosgi</groupId>
+			<artifactId>cxf-dosgi-ri-topology-manager</artifactId>
+			<version>1.4-SNAPSHOT</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.cxf.dosgi</groupId>
+			<artifactId>cxf-dosgi-ri-dsw-cxf</artifactId>
+			<version>1.4-SNAPSHOT</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.cxf.dosgi</groupId>
+			<artifactId>cxf-dosgi-ri-discovery-local</artifactId>
+			<version>1.4-SNAPSHOT</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.cxf.dosgi</groupId>
+			<artifactId>cxf-dosgi-ri-discovery-distributed</artifactId>
+			<version>1.4-SNAPSHOT</version>
+		</bundle>
+		-->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- Lucene packages -->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-analyzers-common</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-analyzers-icu</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-analyzers-phonetic</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-analyzers-stempel</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-grouping</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-highlighter</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-memory</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-misc</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-queries</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-spatial</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>lucene-suggest</artifactId>
+			<version>${liveSense.framework.lucene.version}</version>
+		</bundle>
+
+
+		<!-- For JODReports -->
+		<bundle>
+			<groupId>xom</groupId>
+			<artifactId>xom</artifactId>
+			<version>1.2.5</version>
+		</bundle>
+	
+<!-- 		<bundle> -->
+<!-- 			<groupId>org.apache.servicemix.bundles</groupId> -->
+<!-- 			<artifactId>org.apache.servicemix.bundles.jaxp-ri</artifactId> -->
+<!-- 			<version>1.4.5_1</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>com.github.livesense</groupId> -->
+<!-- 			<artifactId>org.liveSense.framework.jodreports</artifactId> -->
+<!-- 			<version>${liveSense.framework.jodreports.version}</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>com.github.livesense</groupId> -->
+<!-- 			<artifactId>org.liveSense.framework.jodconverter</artifactId> -->
+<!-- 			<version>${liveSense.framework.jodconverter.version}</version> -->
+<!-- 		</bundle> -->
+
+<!-- 		<bundle> -->
+<!-- 			<groupId>com.github.livesense</groupId> -->
+<!-- 			<artifactId>org.liveSense.framework.fitnesse</artifactId> -->
+<!-- 			<version>${liveSense.framework.fitnesse.version}</version> -->
+<!-- 		</bundle> -->
+
+
+		<!-- Sling -->
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.osgi</artifactId>
+			<version>${sling.commons.osgi.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.mime</artifactId>
+			<version>${sling.commons.mime.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.classloader</artifactId>
+			<version>${sling.commons.classloader.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.scheduler</artifactId>
+			<version>${sling.commons.scheduler.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.threads</artifactId>
+			<version>${sling.commons.threads.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.event</artifactId>
+			<version>${sling.event.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+			<version>${sling.api.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.settings</artifactId>
+			<version>${sling.settings.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.auth.core</artifactId>
+			<version>${sling.auth.core.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.engine</artifactId>
+			<version>${sling.engine.version}</version>
+		</bundle>
+<!--
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.auth.openid</artifactId>
+			<version>${sling.auth.openid.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.auth.form</artifactId>
+			<version>${sling.auth.form.version}</version>
+		</bundle>
+-->
+<!--
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.auth.selector</artifactId>
+			<version>${sling.auth.selector.version}</version>
+		</bundle>
+-->
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.adapter</artifactId>
+			<version>${sling.adapter.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.servlets.resolver</artifactId>
+			<version>${sling.servlets.resolver.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.servlets.get</artifactId>
+			<version>${sling.servlets.get.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.servlets.post</artifactId>
+			<version>${sling.servlets.post.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.contentloader</artifactId>
+			<version>${sling.jcr.contentloader.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.resourceresolver</artifactId>
+			<version>${sling.resourceresolver.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.resource</artifactId>
+			<version>${sling.jcr.resource.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.ocm</artifactId>
+			<version>${sling.jcr.ocm.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.classloader</artifactId>
+			<version>${sling.jcr.classloader.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.bundleresource.impl</artifactId>
+			<version>${sling.bundleresource.impl.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.fsresource</artifactId>
+			<version>${sling.fsresource.version}</version>
+		</bundle>
+
+		<!--
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.launchpad.content</artifactId>
+			<version>2.0.6</version>
+		</bundle>
+		-->
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.api</artifactId>
+			<version>${sling.scripting.api.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.core</artifactId>
+			<version>${sling.scripting.core.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.javascript</artifactId>
+			<version>${sling.scripting.javascript.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.jsp</artifactId>
+			<version>${sling.scripting.jsp.version}</version>
+		</bundle>
+
+		<!-- Problem with SLF4J
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.freemarker</artifactId>
+			<version>2.0.0-SNAPSHOT</version>
+		</bundle> -->
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.scripting.jsp.taglib</artifactId>
+			<version>${sling.scripting.jsp.taglib.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>1.8.2</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.http.whiteboard</artifactId>
+			<version>2.2.0</version>
+		</bundle>
+
+
+		<!-- Aries - OSGi blueprint -->
+		<bundle>
+			<groupId>org.apache.xbean</groupId>
+			<artifactId>xbean-finder</artifactId>
+			<version>3.12</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.xbean</groupId>
+			<artifactId>xbean-bundleutils</artifactId>
+			<version>3.12</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.aries</groupId>
+			<artifactId>org.apache.aries.util</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.annotation.api</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.annotation.impl</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.compatibility</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.jexl.evaluator</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.proxy</groupId>
+			<artifactId>org.apache.aries.proxy</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.quiesce</groupId>
+			<artifactId>org.apache.aries.quiesce.api</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.quiesce</groupId>
+			<artifactId>org.apache.aries.quiesce.manager</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+
+		<!--   Transaction manager or wrapper
+		http://zoomsplatter.blogspot.hu/2010/09/apache-aries-jpa-samples.html
+		-->
+		<bundle>
+			<groupId>org.apache.aries.transaction</groupId>
+			<artifactId>org.apache.aries.transaction.blueprint</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.transaction</groupId>
+			<artifactId>org.apache.aries.transaction.manager</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.transaction</groupId>
+			<artifactId>org.apache.aries.transaction.wrappers</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.jpa</groupId>
+			<artifactId>org.apache.aries.jpa.api</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.jpa</groupId>
+			<artifactId>org.apache.aries.jpa.blueprint.aries</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.jpa</groupId>
+			<artifactId>org.apache.aries.jpa.container</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.jpa</groupId>
+			<artifactId>org.apache.aries.jpa.container.context</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.jndi</groupId>
+			<artifactId>org.apache.aries.jndi</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.jndi</groupId>
+			<artifactId>org.apache.aries.jndi.legacy.support</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.aries.jndi</groupId>
+			<artifactId>org.apache.aries.jndi.rmi</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+
+		<!--  Sling bundles -->
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.launchpad.api</artifactId>
+			<version>${sling.launchpad.api.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.launchpad.installer</artifactId>
+			<version>${sling.launchpad.installer.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.installer.api</artifactId>
+			<version>${sling.installer.api.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.installer.console</artifactId>
+			<version>${sling.installer.console.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.installer.core</artifactId>
+			<version>${sling.installer.core.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.installer.provider.file</artifactId>
+			<version>${sling.installer.provider.file.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.installer.provider.jcr</artifactId>
+			<version>${sling.installer.provider.jcr.version}</version>
+		</bundle>
+
+	</startLevel>
+	<startLevel level="1">
+		<bundle>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</bundle>
+		<!-- Launchpad default packages -->
+		<!-- Logger -->
+		<!--
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.log</artifactId>
+			<version>2.1.3-SNAPSHOT</version>
+		</bundle>
+		-->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.log.lilith.core</artifactId>
+			<version>${liveSense.misc.log.lilith.core.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.log.config.default</artifactId>
+			<version>${liveSense.misc.log.config.default.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.logservice</artifactId>
+			<version>${sling.commons.logservice.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</bundle>
+
+		<!-- Already registered in liveSense
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.fragment.xml</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</bundle>
+		-->
+		<!--  Aries defines it in JTA -->
+		<!--
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.fragment.transaction</artifactId>
+			<version>${sling.fragment.transaction.version}</version>
+		</bundle>
+		-->
+		<!-- Already registered in liveSense
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.fragment.activation</artifactId>
+			<version>${sling.fragment.activation.version}</version>
+		</bundle>
+		-->
+		<!-- liveSense fragment bundles -->
+		<bundle>
+			<artifactId>org.liveSense.fragment.com.sun.image.codec.jpeg
+			</artifactId>
+			<groupId>com.github.livesense</groupId>
+			<version>${liveSense.fragment.com.sun.image.codec.jpeg.version}
+			</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.fragment.sun.misc</artifactId>
+			<version>${liveSense.fragment.sun.misc.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.fragment.sun.security</artifactId>
+			<version>${liveSense.fragment.sun.security.version}</version>
+		</bundle>
+		<!--  ServiceMix defines it -->
+		<!--
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.fragment.javax.jws-jre-1.6</artifactId>
+			<version>${liveSense.fragment.javax.jws-jre-1.6.version}</version>
+		</bundle>
+		-->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.fragment.javax.xml-jre-1.6</artifactId>
+			<version>${liveSense.fragment.javax.xml-jre-1.6.version}</version>
+		</bundle>
+
+		<!-- Geronimo spec is used -->
+		<!--
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.fragment.javax.activation-jre-1.6
+			</artifactId>
+			<version>${liveSense.fragment.javax.activation-jre-1.6.version}
+			</version>
+		</bundle>
+		-->
+
+	</startLevel>
+	<startLevel level="5">
+		<!-- Launchpad default packages -->
+		<!--
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.extensions.webconsolebranding</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		-->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.webconsole.branding</artifactId>
+			<version>${liveSense.webconsole.branding.version}</version>
+		</bundle>
+
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.extensions.webconsolesecurityprovider
+			</artifactId>
+			<version>${sling.extensions.webconsolesecurityprovider.version}
+			</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.webconsole</artifactId>
+			<version>4.0.0</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.webconsole.plugins.ds</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.webconsole.plugins.event</artifactId>
+			<version>1.0.2</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.webconsole.plugins.memoryusage
+			</artifactId>
+			<version>1.0.2</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.json</artifactId>
+			<version>${sling.commons.json.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.bundlerepository</artifactId>
+			<version>1.6.6</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.extensions.threaddump</artifactId>
+			<version>${sling.extensions.threaddump.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.webconsole</artifactId>
+			<version>${sling.jcr.webconsole.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.extensions.explorer</artifactId>
+			<version>${sling.extensions.explorer.version}</version>
+		</bundle>
+
+	</startLevel>
+	<startLevel level="10">
+		<!-- Launchpad default packages -->
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.eventadmin</artifactId>
+			<version>1.2.14</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr</artifactId>
+			<version>1.6.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.configadmin</artifactId>
+			<version>1.2.8</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.metatype</artifactId>
+			<version>1.0.4</version>
+		</bundle>
+	</startLevel>
+	<startLevel level="15">
+		<!-- Launchpad default packages -->
+		<bundle>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<version>2.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.api</artifactId>
+			<version>${sling.jcr.api.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.base</artifactId>
+			<version>${sling.jcr.base.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-api</artifactId>
+			<version>${jackrabbit.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.8.1.2</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>1.1</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-bundle</artifactId>
+			<version>1.1</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.jackrabbit.server</artifactId>
+			<version>${sling.jcr.jackrabbit.server.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.fragment.jackrabbit.server.jaybird.ddl</artifactId>
+			<version>${liveSense.fragment.jackrabbit.server.jaybird.ddl.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.jackrabbit.usermanager</artifactId>
+			<version>${sling.jcr.jackrabbit.usermanager.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.jackrabbit.accessmanager
+			</artifactId>
+			<version>${sling.jcr.jackrabbit.accessmanager.version}</version>
+		</bundle>
+
+		<!-- UI for user manager and access manager -->
+		<bundle>
+			<groupId>org.apache.sling.samples</groupId>
+			<artifactId>org.apache.sling.samples.usermanager.ui</artifactId>
+			<version>0.9-SNAPSHOT</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling.samples</groupId>
+			<artifactId>org.apache.sling.samples.accessmanager.ui</artifactId>
+			<version>0.9-SNAPSHOT</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-jcr-commons</artifactId>
+			<version>${jackrabbit.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-spi</artifactId>
+			<version>${jackrabbit.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-spi-commons</artifactId>
+			<version>${jackrabbit.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-jcr-rmi</artifactId>
+			<version>${jackrabbit.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-webdav</artifactId>
+			<version>${jackrabbit.version}</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.webdav</artifactId>
+			<version>${sling.jcr.webdav.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.davex</artifactId>
+			<version>${sling.jcr.davex.version}</version>
+		</bundle>
+
+
+		<!-- Sling Extensions -->
+		<!--
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.compiler</artifactId>
+			<version>2.0.2</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.html</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.extensions.apt.parser</artifactId>
+			<version>2.0.2-incubator</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.compiler</artifactId>
+			<version>2.0.2</version>
+		</bundle>
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.prefs</artifactId>
+			<version>1.0.0</version>
+		</bundle>
+		-->
+		<bundle>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.i18n</artifactId>
+			<version>${sling.i18n.version}</version>
+		</bundle>
+
+
+		<!-- LiveSense packages -->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.core</artifactId>
+			<version>${liveSense.core.version}</version>
+		</bundle>
+<!--
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.framework.cxf</artifactId>
+			<version>${liveSense.framework.cxf.version}</version>
+		</bundle>
+-->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.auth.ldap</artifactId>
+			<version>${liveSense.auth.ldap.version}</version>
+		</bundle>
+
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.framework.apacheds</artifactId>
+			<version>${liveSense.framework.apacheds.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.framework.gwt</artifactId>
+			<version>${liveSense.framework.gwt.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.framework.gxt</artifactId>
+			<version>${liveSense.framework.gxt.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.framework.jasperreports</artifactId>
+			<version>${liveSense.framework.jasperreports.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.framework.solr</artifactId>
+			<version>${liveSense.framework.solr.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.4</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.i18n</artifactId>
+			<version>${liveSense.misc.i18n.version}</version>
+		</bundle>
+<!-- Replaced with JPA 2.0
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.javax.persistence</artifactId>
+			<version>${liveSense.misc.javax.persistence.version}</version>
+		</bundle>
+-->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.jcrom</artifactId>
+			<version>${liveSense.misc.jcrom.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.jsr303</artifactId>
+			<version>${liveSense.misc.jsr303.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.queryBuilder</artifactId>
+			<version>${liveSense.misc.queryBuilder.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.misc.queryBuilder.gwt</artifactId>
+			<version>${liveSense.misc.queryBuilder.gwt.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.jstl</artifactId>
+			<version>${liveSense.scripting.jsp.taglib.jstl.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.scripting.jsp.taglib.json</artifactId>
+			<version>${liveSense.scripting.jsp.taglib.json.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.activation</artifactId>
+			<version>${liveSense.service.activation.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.apacheds</artifactId>
+			<version>${liveSense.service.apacheds.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.apacheds.configurationLoader
+			</artifactId>
+			<version>${liveSense.service.apacheds.configurationLoader.version}
+			</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.captcha</artifactId>
+			<version>${liveSense.service.captcha.version}</version>
+		</bundle>
+
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.cxf</artifactId>
+			<version>${liveSense.service.cxf.version}</version>
+		</bundle>
+
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.dataSourceProvider</artifactId>
+			<version>${liveSense.service.dataSourceProvider.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.guacamole</artifactId>
+			<version>${liveSense.service.guacamole.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.email</artifactId>
+			<version>${liveSense.service.email.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.gwt</artifactId>
+			<version>${liveSense.service.gwt.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.languageSelector</artifactId>
+			<version>${liveSense.service.languageSelector.version}</version>
+		</bundle>
+
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.markdown</artifactId>
+			<version>${liveSense.service.markdown.version}</version>
+		</bundle>
+
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.report.jasper</artifactId>
+			<version>${liveSense.service.report.jasper.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.securityManager</artifactId>
+			<version>${liveSense.service.securityManager.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.thumbnailGenerator</artifactId>
+			<version>${liveSense.service.thumbnailGenerator.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.xssRemove</artifactId>
+			<version>${liveSense.service.xssRemove.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.solr</artifactId>
+			<version>${liveSense.service.solr.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.service.solr.configurationLoader
+			</artifactId>
+			<version>${liveSense.service.solr.configurationLoader.version}
+			</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.jcr.explorer</artifactId>
+			<version>${liveSense.jcr.explorer.version}</version>
+		</bundle>
+
+		<!-- Configuration load service -->
+		<bundle>
+			<artifactId>org.liveSense.misc.configurationLoader</artifactId>
+			<groupId>com.github.livesense</groupId>
+			<version>${liveSense.misc.configurationLoader.version}</version>
+		</bundle>
+
+		<!-- Launchpad initial content -->
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.content.initial</artifactId>
+			<version>${liveSense.content.initial.version}</version>
+		</bundle>
+
+	</startLevel>
+<!-- By default the samples moved a different launchpad -->
+<!--
+	<startLevel level="20">
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.sample.gwt.notes</artifactId>
+			<version>${liveSense.sample.gwt.notes.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.sample.gwt.notesRequestFactory</artifactId>
+			<version>${liveSense.sample.gwt.notesRequestFactory.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.sample.markdown</artifactId>
+			<version>${liveSense.sample.markdown.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.sample.simplePortal</artifactId>
+			<version>${liveSense.sample.simplePortal.version}</version>
+		</bundle>
+
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.sample.solr</artifactId>
+			<version>${liveSense.sample.solr.version}</version>
+		</bundle>
+
+		<bundle>
+			<groupId>com.github.livesense</groupId>
+			<artifactId>org.liveSense.sample.webServiceServlet</artifactId>
+			<version>${liveSense.sample.webServiceServlet.version}</version>
+		</bundle>
+
+	</startLevel>
+-->
+</bundles>

@@ -1,0 +1,48 @@
+/* Override some defaults */
+body {
+/*	padding-top: 60px; */
+}
+
+.container {
+	width: 300px;
+}
+
+/* The white background content wrapper */
+.container>.content {
+	background-color: #CCCCCC;
+	padding: 20px;
+	margin: 10px -20px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+.container>.login-content {
+	background: url(../images/login-background.png);
+}
+
+.login-form {
+	margin-left: 65px;
+}
+
+.login-extra {
+	margin-left: 25px;
+}
+
+.alert {
+	margin-right: 40px;
+}
+
+.show-grid {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+legend {
+	margin-right: -50px;
+	font-weight: bold;
+	color: #404040;
+}

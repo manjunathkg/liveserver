@@ -1,0 +1,8 @@
+.hg
+/target
+/.settings
+/.project
+/.classpath
+/nbactions.xml
+/war
+/.gwt-log

@@ -1,0 +1,13 @@
+case $1 in
+	deploy)
+		cd src/main/resources/initial-content
+		lf apps | doit cq_put
+		lf libs | doit cq_put
+		;;
+	install)
+		xmake -Dmaven.test.skip=true package sling:install
+		;;
+	*)
+		xmake -Dmaven.test.skip=true compile
+		;;
+esac

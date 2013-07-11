@@ -1,0 +1,5 @@
+<mappings>
+	<mapping name="HelloBean">
+		<property name="hello" mappedName="Hello" />
+	</mapping>
+</mappings>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.livesense</groupId>
+		<artifactId>org.liveSense.parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+	</parent>
+
+	<scm>
+		<connection>scm:git:git://github.com/liveSense/org.liveSense.misc.jsr303.git</connection>
+		<developerConnection>scm:git:git://github.com/liveSense/org.liveSense.misc.jsr303.git</developerConnection>
+		<url>https://github.com/liveSense/org.liveSense.misc.jsr303</url>
+	</scm>
+
+	<artifactId>org.liveSense.misc.jsr303</artifactId>
+	<packaging>bundle</packaging>
+	<version>1.0.0-1.0.0.GA-SNAPSHOT</version>
+	<name>liveSense :: Misc :: JSR 303 Bean Validation</name>
+	<description>liveSense JSR 303 Bean Validation
+	</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>maven-sling-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- Which java packages are exported for other bundles -->
+						<Import-Package>
+							com.googlecode.jtype.*;resolution:=optional,
+							org.joda.time.*;resolution:=optional,
+							org.jsoup.*;resolution:=optional,
+							*
+						</Import-Package>
+						<_exportcontents>
+							javax.validation.*;version=1.0.0.GA,
+							org.hibernate.validator.*;version=4.2.0.Final
+						</_exportcontents>
+						<Embed-Dependency>
+							validation-api;inline=false,
+							hibernate-validator;inline=true
+						</Embed-Dependency>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
+	</dependencies>
+</project>

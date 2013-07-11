@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+      <groupId>com.github.livesense</groupId>
+      <artifactId>org.liveSense.parent</artifactId>
+      <version>2-SNAPSHOT</version>
+		<relativePath>../org.liveSense.parent</relativePath>
+  </parent>
+  <scm>
+      <connection>scm:git:git://github.com/liveSense/org.liveSense.misc.javax.persistence.git</connection>
+      <developerConnection>scm:git:git://github.com/liveSense/org.liveSense.misc.javax.persistence.git</developerConnection>
+      <url>https://github.com/liveSense/org.liveSense.misc.javax.persistence</url>
+  </scm>  
+
+    <artifactId>org.liveSense.misc.javax.persistence</artifactId>
+    <version>1.0.1-1.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+    <name>liveSense :: Extension :: javax.persistence</name>
+
+    <description>
+        This bundle exports Javax Persistence 1.0 Specification
+    </description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Category>liveSense</Bundle-Category>
+                        <Export-Package>javax.persistence.*</Export-Package>
+                        <Embed-Dependency>persistence-api;inline=true</Embed-Dependency>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+    <dependencies>
+    	<dependency>
+    		<groupId>javax.persistence</groupId>
+    		<artifactId>persistence-api</artifactId>
+    		<version>1.0</version>
+    	</dependency>
+    </dependencies>
+</project>
